@@ -5,15 +5,22 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  acr_name: azureregistory.azurecr.io
+  acr_name: azureregistory
   tag: 1.0.0-$(Build.BuildId)
 
 steps:
 
+# - task: AzureCLI@2
+#   displayName: Docker Build & Push
+#   inputs:
+#     azureSubscription: '4eaa9531-b854-417a-8fcf-e6c8636ba62d'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
-    azureSubscription: 'spn-team7'
+    azureSubscription: 'sc-for-all-apps'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
