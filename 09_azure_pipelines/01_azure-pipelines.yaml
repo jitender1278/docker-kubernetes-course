@@ -20,7 +20,7 @@ steps:
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
-    azureSubscription: 'aks-cluster'
+    azureSubscription: 'Azure subscription 1 (4eaa9531-b854-417a-8fcf-e6c8636ba62d)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
