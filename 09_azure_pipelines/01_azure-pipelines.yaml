@@ -20,7 +20,7 @@ steps:
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
-    azureSubscription: 'sc-for-all-apps'
+    azureSubscription: 'aks-cluster'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -49,12 +49,15 @@ steps:
   displayName: Kubernetes Deploy
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'aks-spn-ca'
-    azureResourceGroup: 'rg-aks-cluster'
-    kubernetesCluster: 'aks-cluster'
+    azureSubscriptionEndpoint: 'aks-cluster'
+    azureResourceGroup: 'azure-training'
+    kubernetesCluster: 'aks-k8s-cluster'
     namespace: 'default'
     command: 'apply'
     useConfigurationFile: true
     configuration: '02_kubernetes_aks'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
+    azureSubscriptionEndpointForSecrets: 'Azure subscription 1 (4eaa9531-b854-417a-8fcf-e6c8636ba62d)'
+    azureContainerRegistry: 'azureregistory.azurecr.io'
+
